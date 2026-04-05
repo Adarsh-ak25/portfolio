@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adarsh Krishna | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f5f0;
+      --lime: #c8ff00;
+      --orange: #ff5c00;
+      --gray: #1e1e1e;
+      --muted: #888;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      scroll-behavior: smooth;
+      cursor: crosshair;
+    }
+
+
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 48px;
+      background: var(--black);
+      border-bottom: 1px solid #2a2a2a;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 3px;
+      color: var(--lime);
+    }
+
+    nav ul { list-style: none; display: flex; gap: 36px; }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav ul li a:hover { color: var(--lime); }
+
+
+    #home {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 70px;
+    }
+
+    .home-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 48px;
+      border-right: 1px solid #2a2a2a;
+    }
+
+    .home-left .badge {
+      display: inline-block;
+      border: 1px solid var(--lime);
+      color: var(--lime);
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      width: fit-content;
+      margin-bottom: 32px;
+    }
+
+    .home-left h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 7rem;
+      line-height: 0.9;
+      letter-spacing: 2px;
+    }
+
+    .home-left h1 .outline {
+      -webkit-text-stroke: 2px var(--white);
+      color: transparent;
+    }
+
+    .home-left h1 .filled { color: var(--lime); }
+
+    .home-left p {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 0.97rem;
+      line-height: 1.8;
+      max-width: 380px;
+    }
+
+    .home-left .btn {
+      margin-top: 40px;
+      display: inline-block;
+      background: var(--lime);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      text-decoration: none;
+      width: fit-content;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .home-left .btn:hover {
+      background: var(--orange);
+      color: var(--white);
+      transform: translate(-3px, -3px);
+    }
+
+    .home-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 60px 48px;
+    }
+
+    .stat-block {
+      border-top: 1px solid #2a2a2a;
+      padding: 24px 0;
+    }
+
+    .stat-block .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .stat-block .label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    #about {
+      padding: 100px 48px 80px;
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 80px;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    #about .left-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      line-height: 0.9;
+      letter-spacing: 2px;
+      color: #222;
+      -webkit-text-stroke: 1px #444;
+    }
+
+    #about .right-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+
+    #about .right-content p {
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 16px;
+      font-size: 0.97rem;
+    }
+
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .skill {
+      border: 1px solid #333;
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .skill:hover { border-color: var(--lime); color: var(--lime); }
+
+
+    #projects {
+      padding: 100px 48px 80px;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    #projects .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      border-bottom: 1px solid #2a2a2a;
+      padding-bottom: 24px;
+    }
+
+    #projects .section-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 3px;
+    }
+
+    #projects .section-header span {
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: center;
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid #1e1e1e;
+      transition: background 0.2s;
+  
+    }
+
+    .project-row:hover { background: #111; padding-left: 16px; padding-right: 16px; }
+
+    .project-row .p-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: #2a2a2a;
+    }
+
+    .project-row:hover .p-num { color: var(--lime); }
+
+    .project-row .p-info h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .project-row .p-info p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .project-row .p-tag {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid var(--orange);
+      padding: 6px 14px;
+      white-space: nowrap;
+    }
+
+  
+    #contact {
+      padding: 100px 48px 80px;
+      border-top: 1px solid #2a2a2a;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    #contact .contact-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      line-height: 0.9;
+      letter-spacing: 2px;
+    }
+
+    #contact .contact-left h2 .lime { color: var(--lime); }
+
+    #contact .contact-left p {
+      color: var(--muted);
+      margin-top: 24px;
+      line-height: 1.8;
+      max-width: 360px;
+    }
+
+    #contact .contact-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .contact-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .contact-line .c-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+    }
+
+    .contact-line .c-val {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .contact-line a {
+      color: var(--lime);
+      text-decoration: none;
+    }
+
+    .contact-line a:hover { text-decoration: underline; }
+
+
+    footer {
+      border-top: 1px solid #2a2a2a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+
+    footer a { color: var(--lime); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      nav ul { gap: 16px; }
+      #home { grid-template-columns: 1fr; }
+      .home-left { padding: 100px 24px 40px; }
+      .home-left h1 { font-size: 4.5rem; }
+      .home-right { display: none; }
+      #about { grid-template-columns: 1fr; padding: 80px 24px; gap: 32px; }
+      #about .left-label { font-size: 3rem; }
+      #projects { padding: 80px 24px; }
+      .project-row { grid-template-columns: 50px 1fr; }
+      .project-row .p-tag { display: none; }
+      #contact { grid-template-columns: 1fr; padding: 80px 24px; gap: 40px; }
+      #contact .contact-left h2 { font-size: 3.5rem; }
+      footer { flex-direction: column; gap: 8px; padding: 20px 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">My Portfolio</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="home-left">
+      <div class="badge">&#x25CF; Seeking new opportunities</div>
+      <h1>
+        <span class="outline">ADARSH</span><br/>
+        <span class="filled">KRISHNA</span>
+      </h1>
+      <p>Computer Science student at Amrita Vishwa Vidyapeetham — building clean, creative websites and learning something new every day.</p>
+      <a href="#projects" class="btn">View My Work →</a>
+    </div>
+
+    <div class="home-right">
+      <div class="stat-block">
+        <div class="num">CSE</div>
+        <div class="label">Branch</div>
+      </div>
+      <div class="stat-block">
+        <div class="num">3+</div>
+        <div class="label">Projects Built</div>
+      </div>
+      <div class="stat-block">
+        <div class="num">HTML · CSS · JS</div>
+        <div class="label">Core Stack</div>
+      </div>
+      <div class="stat-block">
+        <div class="num">AVV</div>
+        <div class="label">Amrita Vishwa Vidyapeetham</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="left-label">ABOUT<br/>ME</div>
+    <div class="right-content">
+      <h2>Who Am I?</h2>
+      <p>I'm Adarsh Krishna, a Computer Science and Engineering student who loves building things for the web. I'm currently exploring HTML, CSS, through my User Interface Design course.</p>
+      <p>I enjoy solving problems creatively, learning new technologies, and turning ideas into real, working webpages. Every project I build teaches me something new.</p>
+      <div class="skills-row">
+        <div class="skill">HTML5</div>
+        <div class="skill">CSS3</div>
+        <div class="skill">Java</div>
+        <div class="skill">Git & GitHub</div>
+        <div class="skill">Responsive Design</div>
+        <div class="skill">C Basics</div>
+        <div class="skill">Python </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header">
+      <h2>PROJECTS</h2>
+      <span>Selected Work</span>
+    </div>
+<a href="#home" class="project-row">
+  <div class="p-num">01</div>
+  
+  <div class="p-info">
+    <h3>Portfolio Website</h3>
+    <p>
+      Personal portfolio built with HTML & CSS — responsive layout,
+      smooth navigation, and clean design to showcase my work online.
+    </p>
+  </div>
+
+  <div class="p-tag">HTML · CSS</div>
+</a>
+
+    <div class="project-row">
+      <div class="p-num">02</div>
+      <div class="p-info">
+        <h3>Static Blog Page</h3>
+        <p>A clean multi-article blog page built to practise consistent layouts, semantic HTML, and CSS styling across multiple sections.</p>
+      </div>
+      <div class="p-tag">HTML · CSS</div>
+    </div>
+
+  <a href="https://github.com/Adarsh-ak25/mathlab" target="_blank" class="project-row">
+  <div class="p-num">03</div>
+  
+  <div class="p-info">
+    <h3>Mathlab projects</h3>
+    <p>code dealing with fundamentals of linear algebra</p>
+  </div>
+
+  <div class="p-tag">python</div>
+</a>
+
+
+  <section id="contact">
+    <div class="contact-left">
+      <h2>LET'S<br/><span class="lime">CONNECT</span></h2>
+      <p>Feel free to reach out — whether it's about a project, a collaboration, or just to say hello.</p>
+    </div>
+    <div class="contact-right">
+     <div class="contact-line">
+  <span class="c-label">Email</span>
+  <span class="c-val">
+    <a href="mailto:adarshkrishna@example.com">adarshkrishna@example.com</a>
+  </span>
+</div>
+      <div class="contact-line">
+        <span class="c-label">GitHub</span>
+        <span class="c-val"><a href="https://github.com/" target="_blank">github.com/adarshkrishna</a></span>
+      </div>
+      <div class="contact-line">
+        <span class="c-label">LinkedIn</span>
+        <span class="c-val"><a href="https://linkedi6n.com/" target="_blank">linkedin.com/in/adarshkrishna</a></span>
+      </div>
+      <div class="contact-line">
+  <span class="c-label">College</span>
+  <span class="c-val">
+    <a href="https://www.amrita.edu" target="_blank">Amrita Vishwa Vidyapeetham</a>
+  </span>
+</div>
+    </div>
+  </section>
+
+  
+
+<footer>
+  <p>©2026</p>
+<p>contact no: +91 9995009266</p>
+</footer>
+
+</body>
+</html>
